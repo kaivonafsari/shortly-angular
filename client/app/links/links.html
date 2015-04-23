@@ -2,13 +2,15 @@
   <ul>
     <li><a href="/#/links">Go To Links!</a></li>
     <li><a href="/#/shorten">Go To Shorten!</a></li>
+    <li ng-click="signout()">Sign Out</li>
   </ul>
 </nav>
 
 <div id='container'>
   <h1>All our Links!</h1>
+  <label>Search: <input ng-model="searchText"></label>
   <ul>
-    <li ng-repeat="link in data.links">
+    <li ng-repeat="link in data.links | filter : searchText | orderBy : '-visits' ">
       <div class='title'>{{ link.title }}</div>
       <a href="/api/links/{{ link.code }}" target="_blank">{{ link.base_url + "/" + link.code }} </a>
       <div class='visits'>Visits: {{ link.visits }}</div>

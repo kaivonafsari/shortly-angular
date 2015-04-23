@@ -4,6 +4,8 @@ angular.module('shortly.shorten', [])
 
   $scope.link = {};
 
+  $scope.success = false;
+
   $scope.addLink = function(){
     $scope.link.url = $scope.url;
     JSON.stringify($scope.link);
@@ -15,7 +17,8 @@ angular.module('shortly.shorten', [])
       data: $scope.link
     }).then(function (resp){
       // $scope.data.links = resp.data;
-      console.log('resp data is:', resp.data);
+     console.log('resp data is:', resp.data);
+     $scope.success = true;
     });
   }
 });

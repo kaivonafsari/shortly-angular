@@ -6,10 +6,16 @@
 </nav>
 
 <div id='container'>
-  <form name="shortenForm" ng-submit='addLink()'>
-    <input type='text' ng-model='url'>
+  <form name="shortenForm" ng-submit='addLink()' >
+    <input type='url' ng-model='url'>
     <button>Shorten</button>
   </form>
+</div>
+
+<div class='newLinkSuccess' ng-show='success'>
+
+  <h1>Showing Success</h1>
+
 </div>
 
 
